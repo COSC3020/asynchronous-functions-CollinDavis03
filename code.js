@@ -7,7 +7,7 @@ const asyncMatches = (arr, key, callback) => {
       if (item === key) count++; 
       setImmediate(cb); 
     },
-    (err) +> { 
+    (err) => { 
       if (err) {
           callback(err); 
       } else {
