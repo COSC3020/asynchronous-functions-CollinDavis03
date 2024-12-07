@@ -1,21 +1,25 @@
-const asyncMatches = (arr, key, callback) => {
-  let count = 0; 
+const async = require('async');
 
-  async.eachSeries(
-    arr,
-    (item, cd) => { 
-      if (item === key) count++; 
-      setImmediate(cb); 
-    },
-    (err) => { 
-      if (err) {
-          callback(err); 
-      } else {
-          callback(count);
-      }
-    }
-  );
+const asyncMatches = (arr, key, callback) => {
+    let count = 0;
+
+    async.eachSeries(
+        arr,
+        (item, cb) => {
+            // Simulate asynchronous processing
+            setImmediate(() => {
+                if (item === key) count++;
+                cb(); // Signal completion of the current iteration
+            });
+        },
+        (err) => {
+            if (err) {
+                callback(err); // Pass error to the callback
+            } else {
+                callback(count); // Return the final count
+            }
+        }
+    );
 };
 
-module.exports = asyncMatches; 
-
+module.exports = asyncMatches;
