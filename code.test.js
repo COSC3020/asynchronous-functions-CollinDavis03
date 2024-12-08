@@ -2,7 +2,7 @@ const fs = require('fs');
 const assert = require('assert');
 const asyncMatches = require('./code.js'); // Import the function from code.js
 
-// Test cases
+// Test cases I borrowed from egkallas
 const arg1 = [2, 2, 4, 2];
 asyncMatches(arg1, 2, (result) => {
     assert(result === 3);
@@ -30,6 +30,12 @@ asyncMatches(arg5, 4, (result) => {
 
 const arg6 = [1];
 asyncMatches(arg6, 1, (result) => {
+    assert(result === 1);
+});
+
+// This is my own test code. 
+const arg7 = [2];
+asyncMatches(arg7, 2, (result) => {
     assert(result === 1);
 });
 
