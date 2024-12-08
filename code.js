@@ -1,25 +1,21 @@
-const async = require('async');
-
 const asyncMatches = (arr, key, callback) => {
     let count = 0;
+    let index = 0;
 
-    async.eachSeries(
-        arr,
-        (item, cb) => {
-            // Simulate asynchronous processing
-            setImmediate(() => {
-                if (item === key) count++;
-                cb(); // Signal completion of the current iteration
-            });
-        },
-        (err) => {
-            if (err) {
-                callback(err); // Pass error to the callback
-            } else {
-                callback(count); // Return the final count
-            }
+    const processNext = () => {
+        if (index >= arr.length) {
+            callback(count); // All items processed, return count
+            return;
         }
-    );
+
+        setImmediate(() => {
+            if (arr[index] === key) count++;
+            index++;
+            processNext(); // Process the next item
+        });
+    };
+
+    processNext(); // Start processing
 };
 
 module.exports = asyncMatches;
