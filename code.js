@@ -1,21 +1,12 @@
-const asyncMatches = (arr, key, callback) => {
-    let count = 0;
-    let index = 0;
-
-    const processNext = () => {
-        if (index >= arr.length) {
-            callback(count); // All items processed, return count
-            return;
+function asyncMatches(arr, key, callback) {
+    // Simulate asynchronous processing
+    setImmediate(() => {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === key) count++;
         }
-
-        setImmediate(() => {
-            if (arr[index] === key) count++;
-            index++;
-            processNext(); // Process the next item
-        });
-    };
-
-    processNext(); // Start processing
-};
+        callback(count);
+    });
+}
 
 module.exports = asyncMatches;
