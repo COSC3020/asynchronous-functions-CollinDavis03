@@ -20,3 +20,13 @@ this.
 
 What is the time complexity of your implementation (worst-case $\Theta$)? Add
 your answer, including your reasoning, to this markdown file.
+
+
+## Answer 
+Looking at my code the time complexity would be $O(n)$ and the final worst-case complexity would make this $\Theta(n)$. The n is from the iterations and length of the input array. 
+
+## Sources
+I looked at egkallas's repo because I was having a problem with my async. Once I looked at how he did his code and test code, I adjusted my test code to be like his but adjusted my code to pass the code. I have commented what I borrowed and wrote myself. 
+
+## Plagarism Statement
+“I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.”
